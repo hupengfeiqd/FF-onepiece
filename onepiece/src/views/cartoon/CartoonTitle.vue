@@ -51,11 +51,14 @@ export default {
   #cart-title {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
     &>#cart-head {
+      flex: 1;
       padding: 10px;
-      display: flex;
-      flex-wrap: wrap;
       &>div {
+        display: inline-block;
         padding: 7px 12px;
         background-color: rgba(0, 0, 0, 0.6);
         margin: 5px;
@@ -91,9 +94,13 @@ export default {
       }
     }
     &>#cart-content {
+      flex: 1;
       padding: 10px;
       display: flex;
       flex-wrap: wrap;
+      flex-flow: column;
+      justify-content: flex-start;
+      align-items: flex-start;
       &>div {
         padding: 7px 12px;
         background-color: rgba(0, 0, 0, 0.6);
@@ -104,6 +111,7 @@ export default {
           text-decoration: underline;
         }
         &>a {
+          text-shadow: 1px 1px 1px #000;
           color: #fff;
         }
       }

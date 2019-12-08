@@ -38,6 +38,13 @@ export default {
         titleout : function(data){
             this.$store.commit("titleout",data);
         }
+    },
+    beforeRouteLeave(to,from,next) {
+      var use = this.$store.state.myTitle.use;
+      if (use) {
+        this.$store.commit("titleout", true);
+      }
+      next();
     }
 }
 </script>

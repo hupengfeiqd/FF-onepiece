@@ -107,12 +107,12 @@ export default {
           router:"/ancientWeapon",
           class: "ancientWeapon"
         },
-        {
-          name:"地理设定",
-          icon:"iconfont op-geography",
-          router:"/geography",
-          class: "geography"
-        },
+        // {
+        //   name:"地理设定",
+        //   icon:"iconfont op-geography",
+        //   router:"/geography",
+        //   class: "geography"
+        // },
         {
           name:"漫画信息",
           icon:"iconfont op-cartoonInfo",
@@ -292,12 +292,13 @@ export default {
     background-image: linear-gradient(to right, #f44336, #1de9b6 20%, #f44336 50%, #1de9b6 70%, #f44336);
 }
 /* 世界政府 */
-.revolutionaryArmy {
-    background-image: -webkit-linear-gradient(left, #7b1fa2, #fafafa 20%, #7b1fa2 50%, #fafafa 70%, #7b1fa2);
-}
-/* 革命军 */
 .worldGovt {
     background-image: -webkit-linear-gradient(left, #81d4fa, #4b5cc4 20%, #81d4fa 50%, #4b5cc4 70%, #81d4fa);
+}
+/* 革命军 */
+.revolutionaryArmy {
+  background-image: -webkit-linear-gradient(right, #996633, #1de9b6 20%, #996633 50%, #1de9b6 70%, #996633);
+    // background-image: -webkit-linear-gradient(left, #7b1fa2, #fafafa 20%, #7b1fa2 50%, #fafafa 70%, #7b1fa2);
 }
 /* 航线行程 */
 .trip {

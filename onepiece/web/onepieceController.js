@@ -110,4 +110,14 @@ function queryAllCartoon(request, response) {
 
 path.set("/api/queryAllCartoon", queryAllCartoon);
 
+function queryAllAnimation(request, response) {
+  opDao.queryAllAnimation(function (result) {
+    response.writeHead(200, { 'Content-Type': 'text/html;charset=utf8' });
+    response.write(JSON.stringify(result));
+    response.end();
+  })
+}
+
+path.set("/api/queryAllAnimation", queryAllAnimation);
+
 module.exports.path = path;

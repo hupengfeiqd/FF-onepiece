@@ -1,6 +1,6 @@
 <template>
   <div id="the-edition">
-    <div v-for="(item,index) in datas" :key="index">
+    <div v-for="(item,index) in datas" :key="index" :title="item.title" @mouseover="titleover($event)" @mousemove="titlemove($event)" @mouseout="titleout($event)">
       <img :src="item.img" alt="">
       <span>{{ item.title }}</span>
     </div>
@@ -12,6 +12,14 @@ export default {
   data () {
     return {
       datas: [
+        {
+          img: require('../../assets/images/juchangban/kuangrexingdong.jpg'),
+          title: "航海王：狂热行动"
+        },
+        {
+          img: require('../../assets/images/juchangban/huangjincheng.jpg'),
+          title: "航海王之黄金城"
+        },
         {
           img: require('../../assets/images/juchangban/huangjindao.jpg'),
           title: "航海王：黄金岛冒险"
@@ -59,16 +67,20 @@ export default {
         {
           img: require('../../assets/images/juchangban/z.jpg'),
           title: "航海王剧场版：Z"
-        },
-        {
-          img: require('../../assets/images/juchangban/huangjincheng.jpg'),
-          title: "航海王之黄金城"
-        },
-        {
-          img: require('../../assets/images/juchangban/kuangrexingdong.jpg'),
-          title: "航海王：狂热行动"
         }
       ]
+    }
+  },
+  methods: {
+    // 自定义title标签的三个事件
+    titleover (data) {
+      this.$store.commit("titleover", data);
+    },
+    titlemove (data) {
+      this.$store.commit("titlemove", data);
+    },
+    titleout (data) {
+      this.$store.commit("titleout", data);
     }
   }
 }
@@ -78,13 +90,8 @@ export default {
   #the-edition {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-wrap: wrap;
     &>div {
-      display: flex;
-      flex-flow: column;
-      // justify-content: center;
-      // align-items: center;
+      display: inline-block;
       width: 160px;
       margin: 5px 10px;
       box-sizing: border-box;
@@ -97,6 +104,8 @@ export default {
         width: 140px;
       }
       &>span {
+        display: block;
+        width: 100%;
         font-size: 18px;
         color: #fff;
         word-break: break-all;
@@ -104,6 +113,9 @@ export default {
         text-align: center;
         margin-top: 5px;
         text-shadow: 1px 1px 1px #000;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   }

@@ -150,16 +150,30 @@ function queryAllCartoon (callback) {
   connection.end();
 }
 
+function queryAllAnimation (callback) {
+  var querySql = "select * from op_animation;";
+  var connection = dbutil.createConnection();
+  connection.connect();
+  connection.query(querySql,function(error, result){
+    if (error == null) {
+      callback(result)
+    } else {
+      throw new Error(error);
+    }
+  })
+  connection.end();
+}
 // function xie() {
 //   var arr = [];
-//   var asd = fs.readFileSync("dao/manhuatest.txt");
-//   var querySql = "insert into op_cartoon (cartoon_num,cartoon_title,cartoon_href) values ";
-//   arr = asd.toString().split('\r\n');
+//   var asd = fs.readFileSync("dao/donghua.txt");
+//   var querySql = "insert into op_animation (ani_num,ani_title) values ";
+//   arr = asd.toString().split('\n');
 //   for (var i = 0; i < arr.length; i ++ ) {
 //     if (i == 0) {
-//       querySql += `('${arr[i].split("|")[0]}','${arr[i].split("|")[1]}','https://ac.qq.com/${arr[i].split("|")[2]}')`;
+//       querySql += `('${arr[i].split("|")[0]}','${arr[i].split("|")[1]}')`;
 //     } else {
-//       querySql += `,('${arr[i].split("|")[0]}','${arr[i].split("|")[1]}','https://ac.qq.com/${arr[i].split("|")[2]}')`;
+//       if (!arr[i].split("|")[1]) { break }
+//       querySql += `,('${arr[i].split("|")[0]}','${arr[i].split("|")[1]}')`;
 //     }
 //   }
 //     var connection = dbutil.createConnection();
@@ -184,5 +198,6 @@ module.exports = {
   "queryPiratesPower": queryPiratesPower,
   "queryAllTrip": queryAllTrip,
   "queryPersonByName": queryPersonByName,
-  "queryAllCartoon": queryAllCartoon
+  "queryAllCartoon": queryAllCartoon,
+  "queryAllAnimation": queryAllAnimation
 }
