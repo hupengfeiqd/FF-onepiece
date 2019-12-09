@@ -105,34 +105,36 @@ export default {
     },
     useActive() {
       $(`li[page=${this.$parent.page}]`).addClass("clickActive").siblings().removeClass("clickActive");
+    },
+    tempUse () {
+      this.useMove();
+      this.useDian();
+      this.useActive();
     }
   },
   mounted() {
     let t = this;
+    // 点击页码
     $("#paging").on("click", "li:not(.rightDian):not(.leftDian)", function(e) {
       t.$parent.page = Number($(this).attr("page"));
-      t.useDian();
-      t.useMove();
-      t.useActive();
+      t.tempUse();
     });
+    // 上一页
     $("#pag_before").on("click",function(){
       if(t.$parent.page == 2) {
         $("li[page=1]").addClass("clickActive");
       }
       if (t.$parent.page == 1) { return }
       t.$parent.page -= 1;
-      t.useDian();
-      t.useMove();
-      t.useActive();
+      t.tempUse();
     });
+    // 下一页
     $("#pag_after").on("click",function(){
       if(t.$parent.page == t.pageNum - 1) {
         $(`li[page=${t.pageNum}]`).addClass("clickActive");
       } else if (t.$parent.page == t.pageNum) { return }
       t.$parent.page += 1;
-      t.useDian();
-      t.useMove();
-      t.useActive();
+      t.tempUse();
     });
   }
 };

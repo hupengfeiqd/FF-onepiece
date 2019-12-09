@@ -1,17 +1,5 @@
 <template>
   <div id="showMember">
-    <!-- <div class="mem-introduce">
-      <div class="powerHead" :class="powerDatas.power_class">
-        <i :class="powerDatas.power_icon"></i>
-        <span>{{ powerDatas.power_name }}</span>
-      </div>
-      <div class="powerDescBox">
-        <p
-          v-for="(item, i) in powerDatas.power_desc ? powerDatas.power_desc.split('|') : powerDatas.power_desc"
-          :key="i"
-        >{{ item }}</p>
-      </div>
-    </div> -->
     <div class="mem-list">
       <ul>
         <li

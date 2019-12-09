@@ -39,6 +39,7 @@ export default {
             this.$store.commit("titleout",data);
         }
     },
+    // 处理title效果，如果没移出发生跳转，则善后处理
     beforeRouteLeave(to,from,next) {
       var use = this.$store.state.myTitle.use;
       if (use) {

@@ -30,7 +30,7 @@ export const routes = [
   // 古代兵器
   { path:"/ancientWeapon", component: () => import('../views/AncientWeapon') },
   // 地理设定
-  { path:"/geography", component: () => import('../views/Geography') },
+  // { path:"/geography", component: () => import('../views/Geography') },
   // 漫画信息
   { path:"/cartoonInfo", component: () => import('../views/CartoonInfo'),redirect:{ path: "/cartoonInfo/createBackground"},children:[
     { path: "/cartoonInfo/createBackground", component: () => import('../views/cartoon/CreateBackground') },

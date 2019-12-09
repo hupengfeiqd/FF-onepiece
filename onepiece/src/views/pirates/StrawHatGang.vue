@@ -81,11 +81,13 @@ export default {
   mounted() {
     $(function() {
       let timer = setTimeout(() => {
+        // 弗兰奇、布鲁克出现
         let op = new Promise((res, rej) => {
           $(".one").show(700, () => {
             res();
           });
         });
+        // 罗宾、乔巴出现
         op.then(() => {
           return new Promise((res, rej) => {
             $(".two").show(700, function() {
@@ -93,6 +95,7 @@ export default {
             });
           });
         })
+        // 乌索普、娜美出现
           .then(() => {
             return new Promise((res, rej) => {
               $(".three").show(700, function() {
@@ -100,6 +103,7 @@ export default {
               });
             });
           })
+          // 索隆、山治出现
           .then(() => {
             return new Promise((res, rej) => {
               $(".four").show(700, function() {
@@ -107,6 +111,7 @@ export default {
               });
             });
           })
+          // 路飞出现
           .then(() => {
             return new Promise((res, rej) => {
               $(".five").show(700, function() {

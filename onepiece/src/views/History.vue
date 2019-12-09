@@ -60,7 +60,6 @@ export default {
           $(".hongse").css("visibility", "visible");
           $("#history_wrapper ul").css("visibility", "hidden");
           $(".checkedHongse").removeClass("checkedHongse");
-          // $("#history").addClass("bgg");
           $(".hongse").eq(0).css({"position": "absolute", "width": "0px", "height": "0px", "left": "10%", "top": "42%"});
           $(".hongse").eq(1).css({"position": "absolute", "width": "0px", "height": "0px", "left": "30%", "top": "72%"});
           $(".hongse").eq(2).css({"position": "absolute", "width": "0px", "height": "0px", "left": "70%", "top": "35%"});
@@ -205,7 +204,6 @@ export default {
             border-radius: 5px;
             &:hover #hongse_content{
                 opacity: 1;
-                z-index: 1;
             }
           }
           &>#lanse_box {
@@ -254,6 +252,7 @@ export default {
     transition: opacity 1s;
     color: #f44336;
     opacity: 0;
+    z-index: 2;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     display: flex;
@@ -275,6 +274,7 @@ export default {
     transition: opacity 1s;
     color: #40c4ff;
     opacity: 0;
+    z-index: 2;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     display: flex;
