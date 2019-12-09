@@ -8,8 +8,8 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   strict: true,
   modules: {
-    "myTitle":myTitle,
-    "pirates":pirates
+    "myTitle":myTitle, // title效果
+    "pirates":pirates  // 海贼
   },
   state: {
     person: null, // 海贼人物
@@ -24,9 +24,11 @@ export const store = new Vuex.Store({
     showPerson: null // 正在展示的人
   },
   getters: {
+    // 获得正在展示的海贼团成员信息
     getShowMember(state) {
       return state.showMember;
     },
+    // 通过id差人物信息
     getPersonInfoById: (state) => (id) => {
       var data = null;
       state.person.some((ele) => {
@@ -37,6 +39,7 @@ export const store = new Vuex.Store({
       });
       return data;
     },
+    // 通过名字差人物信息
     getPersonIdByName : (state) => (name) => {
       var data = null;
       state.person.some((ele) => {
@@ -49,20 +52,25 @@ export const store = new Vuex.Store({
     }
   },
   mutations: {
+    // 初始化所有人物
     allPerson(state, data) {
       var datas = typeof data === 'string' ? JSON.parse(data) : data;
       state.person = datas;
     },
+    // 设置正在展示的海贼团成员
     setMember(state, data) {
       var datas = typeof data === 'string' ? JSON.parse(data) : data;
       state.showMember = datas;
     },
+    // 设置正在展示的势力
     setPower(state, data) {
       state.showPower = data;
     },
+    // 设置正在展示的海贼
     setShowPirates (state,data) {
       state.showPirates = data;
     },
+    // 清除正在展示的海贼信息
     clearShowPirates (state) {
       state.showPirates = null;
     }
