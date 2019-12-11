@@ -33,7 +33,6 @@ export default {
         }
       });
       t.showDatas = newArr;
-      console.log(newArr);
     }
   },
   mounted () {
@@ -41,7 +40,6 @@ export default {
     t.opAxios.post("/api/queryAllCartoon")
     .then(data => {
       t.datas = data.data;
-      console.log(t.datas);
     })
   }
 }

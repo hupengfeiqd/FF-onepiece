@@ -83,14 +83,14 @@ export default {
       let timer = setTimeout(() => {
         // 弗兰奇、布鲁克出现
         let op = new Promise((res, rej) => {
-          $(".one").show(700, () => {
+          $(".one").animate({"opacity":1},700, () => {
             res();
           });
         });
         // 罗宾、乔巴出现
         op.then(() => {
           return new Promise((res, rej) => {
-            $(".two").show(700, function() {
+            $(".two").animate({"opacity":1},700, function() {
               res();
             });
           });
@@ -98,7 +98,7 @@ export default {
         // 乌索普、娜美出现
           .then(() => {
             return new Promise((res, rej) => {
-              $(".three").show(700, function() {
+              $(".three").animate({"opacity":1},700, function() {
                 res();
               });
             });
@@ -106,7 +106,7 @@ export default {
           // 索隆、山治出现
           .then(() => {
             return new Promise((res, rej) => {
-              $(".four").show(700, function() {
+              $(".four").animate({"opacity":1},700, function() {
                 res();
               });
             });
@@ -114,7 +114,7 @@ export default {
           // 路飞出现
           .then(() => {
             return new Promise((res, rej) => {
-              $(".five").show(700, function() {
+              $(".five").animate({"opacity":1},700, function() {
                 res();
               });
             });
@@ -177,7 +177,8 @@ export default {
     height: 55%;
     transition: filter 0.3s;
     cursor: pointer;
-    display: none;
+    // display: none;
+    opacity: 0;
     filter: brightness(40%);
     &:hover {
       filter: brightness(100%);

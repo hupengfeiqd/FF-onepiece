@@ -122,6 +122,7 @@ export default {
                   font-size: 16px;
                   font-weight: bold;
                   color: #fff;
+                  padding-top: 5px;
                 }
               }
               &.op-active>.hzq_box {

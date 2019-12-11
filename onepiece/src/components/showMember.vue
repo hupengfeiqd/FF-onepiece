@@ -11,7 +11,9 @@
           @mousemove="titlemove($event)"
           @mouseout="titleout($event)"
         >
-          <img :src="handleImgUrl(item.img_path)" :class="{ active:pirates && pirates.id == item.id }" @click="clickPerson($event,item.id)" />
+        <div :class="{ active:pirates && pirates.id == item.id }" @click="clickPerson($event,item.id)">
+          <img :src="handleImgUrl(item.img_path)"  />
+        </div>
           <!-- <span>{{ item.name }}</span> -->
         </li>
       </ul>
@@ -114,19 +116,46 @@ export default {
         flex-flow: column;
         justify-content: center;
         align-items: center;
-        & > img {
-          width: 83px;
-          height: 83px;
+        & > div {
+          position: relative;
           border-radius: 50%;
+          box-sizing: border-box;
+          font-size: 0px;
           cursor: pointer;
-          transition: all 0.05s;
-          box-shadow: 0px 0px 10px 1px #fff;
           &:hover {
             transform: scale(1.1);
             box-shadow: 0px 0px 8px 4px #ff0;
           }
           &.active {
             box-shadow: 0px 0px 8px 4px #ff0;
+            &::before {
+              content: "";
+              display: block;
+              position: absolute;
+              box-sizing: border-box;
+              border-radius: 50%;
+              width: 100%;
+              height: 100%;
+              border: 2px solid #f44336;
+              border-left-color: #1de9b6;
+              border-top-color: #1de9b6;
+              animation: rotate 1s linear infinite;
+            }
+          }
+
+          &>img {
+            width: 83px;
+            height: 83px;
+            border-radius: 50%;
+            transition: all 0.05s;
+            box-shadow: 0px 0px 10px 1px #fff;
+            // &:hover {
+            //   transform: scale(1.1);
+            //   box-shadow: 0px 0px 8px 4px #ff0;
+            // }
+            // &.active {
+            //   box-shadow: 0px 0px 8px 4px #ff0;
+            // }
           }
         }
         & > span {
@@ -137,7 +166,7 @@ export default {
       & > li:first-child {
         width: 186px;
         height: 100px;
-        & > img {
+        & > div > img {
           width: 100px;
           height: 100px;
         }

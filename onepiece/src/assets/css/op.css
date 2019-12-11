@@ -18,6 +18,10 @@ html,body{
   0%{ background-position: 0 0;}
  100% { background-position: -100% 0;}
 }
+@keyframes rotate{
+  form{ transform:rotate(0deg);}
+  to{ transform:rotate(360deg);}
+}
 .newtitle {
   background-color: rgba(0, 0, 0, 0.7);
   padding: 8px 12px;

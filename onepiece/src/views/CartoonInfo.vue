@@ -80,7 +80,7 @@ export default {
         align-items: center;
         &>li {
           // border: 2px solid #000;
-          background-color: rgba(0, 0, 0, 0.4);
+          background-color: rgba(0, 0, 0, 0.6);
           border-radius: 10px;
           padding: 7px 12px;
           cursor: pointer;
